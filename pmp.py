@@ -20,8 +20,8 @@ load_dotenv()
 
 # Change ownership of the file to jellyfin:jellyfin
 print("Changing ownership of file to jellyfin...")
-group_id = 1000
-user_id = 1000
+group_id = os.getenv('JELLYFIN_GROUP_ID')
+user_id = os.getenv('JELLYFIN_USER_ID')
 os.chown(media_file_path, user_id, group_id)
 
 # Move files
